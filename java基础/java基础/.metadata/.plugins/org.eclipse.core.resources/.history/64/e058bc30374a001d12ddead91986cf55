@@ -1,0 +1,30 @@
+package 继承抽象接口等;
+interface Animal{
+	public static final String NAME="牧羊犬";
+	 void shout();//定义的抽象方法
+}
+interface Action extends Animal{//接口的继承
+	void eat();
+}
+abstract class atrribute{
+	public abstract void GetName();
+}
+class Dog extends atrribute  implements Action{
+	public void shout() {
+	System.out.println("汪汪");
+	}
+	public void eat() {
+		System.out.println("喜欢吃骨头");
+	}
+	public void GetName() {
+		System.out.println("名字: "+NAME);
+	}
+}
+public class example {
+public static void main(String[] args) {
+	Dog dog=new Dog();
+	dog.GetName();
+	dog.eat();
+	dog.getname();
+}
+}

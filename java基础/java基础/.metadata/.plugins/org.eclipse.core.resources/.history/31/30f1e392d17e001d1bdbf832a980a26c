@@ -1,0 +1,24 @@
+package day1;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+
+public class example1 {
+	public static void main(String[] args) {
+		LinkedHashSet list=new LinkedHashSet<>();
+		list.add("张1");
+		list.add("张2");
+		list.add("张3");
+		System.out.println(list);
+		Iterator iterator=list.iterator();
+		while(iterator.hasNext()) {
+			Object obj=iterator.next();
+			
+			System.out.println(obj);
+		}
+		for(Object li:list) {
+			System.out.println(li);
+		}
+	}
+}

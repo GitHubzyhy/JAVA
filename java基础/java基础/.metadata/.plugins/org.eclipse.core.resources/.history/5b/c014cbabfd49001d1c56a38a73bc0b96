@@ -1,0 +1,26 @@
+package 第四章;
+class Outer2 {
+	int m=1;
+	void text1() {
+		System.out.println("外部成员的方法");
+	}
+	void text2() {
+		class Inner{//定义的局部内部类
+			int n=11;
+			void show() {
+				System.out.println("访问外部类成员变量:"+m);
+		      text1();//访问外部类方法
+			}
+		}
+		//所属方法中创建局部内部类的对象，通过对象访问局部内部类
+		Inner inner=new Inner();
+		System.out.println("局部内部类的变量："+inner.n);
+		inner.show();
+	}
+}
+public class 局部内部类 {
+public static void main(String[] args) {
+	Outer2 outer=new Outer2();
+	outer.text2();
+}
+}

@@ -1,0 +1,18 @@
+package day1;
+
+public class Example04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+class TicketWindow implements Runnable{
+	private int tickets=100;//票数
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+}

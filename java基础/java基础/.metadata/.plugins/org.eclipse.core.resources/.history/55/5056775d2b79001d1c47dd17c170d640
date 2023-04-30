@@ -1,0 +1,21 @@
+package day1;
+
+public class Example04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		TicketWindow tw=new TicketWindow();//创建对象
+		new Thread(tw,"窗口1").start();//创建线程并命名为窗口1，开启线程
+	}
+
+}
+class TicketWindow implements Runnable{
+	private int tickets=100;//票数
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while(tickets>0) {
+			System.out.println(Thread.currentThread().getName()+"正在发售第"+tickets--+"张票");
+		}
+	}
+}

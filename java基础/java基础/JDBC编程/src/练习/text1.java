@@ -1,0 +1,64 @@
+package 练习;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.xdevapi.Statement;
+
+public class text1 {
+public static void main(String[] args) {
+	Connection conn=null;
+	java.sql.Statement sttm=null;
+	ResultSet res=null;
+	String driver="com.mysql.cj.jdbc.Driver",url="jdbc:mysql://localhost:3306/eudc? characterEncoding=utf8&useSSL=true",user="root",password="123456";
+	try {                                         //jdbc:mysql://localhost:3306/eudc? characterEncoding=utf8&useSSL=true
+		Class.forName(driver);
+		conn=DriverManager.getConnection(url,user,password);
+		sttm=conn.createStatement();
+		String sql="select *from sc";
+		res=sttm.executeQuery(sql);
+		while(res.next()) {
+			String sno=((ResultSet) res).getString("sno");//通过列名获取指定列的值
+			String cno=((ResultSet) res).getString("cno");
+			String  grade=((ResultSet) res).getString("grade");
+			System.out.println(sno+"     |"+cno+"     |"+grade);
+		}
+		
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally{
+		if(conn!=null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if(sttm!=null) {
+			try {
+				sttm.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if(res!=null){
+			try {
+				res.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+}
+}

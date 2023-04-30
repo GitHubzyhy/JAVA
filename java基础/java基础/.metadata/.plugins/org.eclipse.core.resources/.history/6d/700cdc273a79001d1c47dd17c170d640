@@ -1,0 +1,53 @@
+package day1;
+
+public class test {
+public static void main(String[] args) {
+
+}
+}
+class Student{
+	private int sNo;
+	private String sName;
+	private String sSex;
+	private String sAge;
+	private String  sJava;
+	public Student(int sNo, String sName, String sSex, String sAge, String sJava) {
+		super();
+		this.sNo = sNo;
+		this.sName = sName;
+		this.sSex = sSex;
+		this.sAge = sAge;
+		this.sJava = sJava;
+	}
+	public int getNo() {
+		return sNo;
+	}
+	public void setNo(int sNo) {
+		this.sNo = sNo;
+	}
+	public String getName() {
+		return sName;
+	}
+	public void setName(String sName) {
+		this.sName = sName;
+	}
+	public String getSex() {
+		return sSex;
+	}
+	public void setSex(String sSex) {
+		this.sSex = sSex;
+	}
+	public String getAge() {
+		return sAge;
+	}
+	public void setAge(String sAge) {
+		this.sAge = sAge;
+	}
+	public String getJava() {
+		return sJava;
+	}
+	public void setJava(String sJava) {
+		this.sJava = sJava;
+	}
+	
+}

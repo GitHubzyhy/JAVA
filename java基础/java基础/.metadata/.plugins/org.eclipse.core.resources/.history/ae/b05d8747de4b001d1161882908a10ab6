@@ -1,0 +1,66 @@
+package day1;
+
+import java.security.DrbgParameters.NextBytes;
+
+class Lnode{
+	int data;//数据域
+	Lnode next;
+}
+public class text1 {
+public static void main(String[] args) {
+	Lnode L=null;
+	L=create(L, 5);
+	L=insert(L, 6, 6);
+	L=del(L, 6)
+	display(L);
+}
+public static Lnode create(Lnode L,int n) {//创建单链表
+	Lnode next=null,r=null;
+	L=new Lnode();
+	L.next=null;//头节点创造完成
+	r=L;
+	for(int i=1;i<=n;i++)
+	{
+		next=new Lnode();
+		next.data=i;
+		next.next=null;
+		r.next=next;
+		r=next;
+	}
+	return L;
+}
+public static void display(Lnode L) {
+	Lnode p=L.next;
+	while(true) {
+		System.out.println("data: "+p.data);
+		if(p.next!=null)
+			p=p.next;
+		else break;
+	}
+}
+public static Lnode insert(Lnode L,int i,int e) {
+	
+	Lnode p=L.next;//指向首元节点
+	int j=1;
+	while((p!=null)&&j<i-1) {
+		p=p.next;j++;
+	}
+	if((p==null)||j>i-1) {
+		System.out.println("i的位置错误！");
+	}
+	Lnode s=new Lnode();
+	s.data=e;
+     s.next=p.next;
+     p.next=s;
+	return L;
+}
+public static Lnode del(Lnode L,int i) {
+	Lnode p=L.next;
+	int j=1;
+	while((p.next!=null)&&(j<i-1)) {
+		p=p.next;j++;
+	}
+	p.next=p.next.next;
+	return L;
+}
+}
